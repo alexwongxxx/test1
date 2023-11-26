@@ -24,11 +24,11 @@ if (navigator.geolocation) {
         
         if (userMarker) {
             // If userMarker already exists, update its position
-            userMarker.setPosition(newUserLocation);
+            userMarker.setPosition(userLocation);
         } else {
             // If userMarker doesn't exist, create a new one
             userMarker = new google.maps.Marker({
-                position: newUserLocation,
+                position: userLocation,
                 map: map,
                 title: "現在地",
                 animation: google.maps.Animation.DROP
