@@ -19,15 +19,18 @@ if (navigator.geolocation) {
             lat: position.coords.latitude,
             lng: position.coords.longitude
         };
-        map.setCenter(userLocation); // Center the map on the user's location
-
-        // Create a marker at the user's location
-        const userMarker = new google.maps.Marker({
-            position: userLocation,
-            map: map,
-            title: "現在地",
-            animation: google.maps.Animation.DROP
-        });
+        
+        if (userMarker) {
+            // If userMarker already exists, update its position
+            userMarker.setPosition(newUserLocation);
+        } else {
+            // If userMarker doesn't exist, create a new one
+            userMarker = new google.maps.Marker({
+                position: newUserLocation,
+                map: map,
+                title: "現在地",
+                animation: google.maps.Animation.DROP
+            });
 
         const userInfowindow = new google.maps.InfoWindow({
             content: "現在地",
@@ -36,8 +39,7 @@ if (navigator.geolocation) {
         userMarker.addListener("click", () => {
             userInfowindow.open(map, userMarker);
         });
-
-        
+    }
 
         // Create markers at the second location
         const secondMarkers = [ // Use the correct variable name 'secondMarkers'
