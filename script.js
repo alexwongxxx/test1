@@ -1,3 +1,5 @@
+let userMarker; // Declare userMarker globally
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 35.33031740207237, lng: 139.40676857217937 },
