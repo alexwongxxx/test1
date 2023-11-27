@@ -1,4 +1,5 @@
 let userMarker; // Declare userMarker globally
+let destinationMarker; // Declare destinationMarker globally
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -42,6 +43,18 @@ if (navigator.geolocation) {
             userInfowindow.open(map, userMarker);
         });
     }
+
+        // Add a click event listener to the map
+        map.addListener("click", (event) => {
+            // Get the clicked location's coordinates
+            const clickedLocation = {
+                lat: event.latLng.lat(),
+                lng: event.latLng.lng()
+            };
+    
+            // Set the destination marker using the red.png icon
+            setDestinationMarker(clickedLocation.lat, clickedLocation.lng, "目的地", "red.png");
+        });
 
         // Create markers at the second location
         const secondMarkers = [ // Use the correct variable name 'secondMarkers'
@@ -92,15 +105,40 @@ if (navigator.geolocation) {
     console.log('Geolocation is not supported by your browser.');
 }
 
+// Function to set the destination marker and calculate the route
+function setDestinationMarker(lat, lng, title) {
+    // Remove existing destination marker if it exists
+    if (destinationMarker) {
+        destinationMarker.setMap(null);
+    }
+
+    // Create a new destination marker
+    destinationMarker = new google.maps.Marker({
+        position: { lat, lng },
+        map: map,
+        title: title,
+        animation: google.maps.Animation.DROP
+    });
+
+    // Calculate and display the route
+    calculateAndDisplayRoute();
+}
+
+// Function to calculate and display the route
 function calculateAndDisplayRoute() {
+    if (!userMarker || !destinationMarker) {
+        // Either user marker or destination marker is missing, cannot calculate route
+        return;
+    }
+
     const directionsService = new google.maps.DirectionsService();
-    const start = new google.maps.LatLng(userLocation.lat, userLocation.lng); // Replace with the user's location
-    const end = new google.maps.LatLng(DESTINATION_LATITUDE, DESTINATION_LONGITUDE); // Replace with the destination coordinates
+    const start = new google.maps.LatLng(userMarker.getPosition().lat(), userMarker.getPosition().lng());
+    const end = new google.maps.LatLng(destinationMarker.getPosition().lat(), destinationMarker.getPosition().lng());
 
     const request = {
         origin: start,
         destination: end,
-        travelMode: google.maps.TravelMode.DRIVING // You can change the travel mode
+        travelMode: google.maps.TravelMode.DRIVING
     };
 
     directionsService.route(request, function (result, status) {
