@@ -13,5 +13,64 @@ body{
 }
 
 #map{
-    height: 60vh;
+    height: 90vh;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+header{
+    background-color: #231C1A;
+    height: 80px;
+    width: 100%;
+}
+
+h1{
+    color: white;
+    position: absolute;
+    top: 0;
+    line-height: 50px;
+    left: 80px;
+}
+
+header ul{
+    position: absolute;
+    right:5vw;
+    top:0;
+    line-height: 80px;
+}
+
+header li{
+    display: inline;
+    margin-right: 4vw;
+    font-size: 20px;
+}
+
+header a{
+    color:white;
+    text-decoration: none;
+}
+
+header a:hover{
+    text-decoration: underline;
+}
+
+body{
+    background-color: #231C1A;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.homepage{
+    background-color: lightgray;
+}
+
+h2{
+    font-size: 60px;
+    margin: 0;
+}
+
+p{
+    color:gray;
+    font-size: 30px;
+    margin: 0;
 }
