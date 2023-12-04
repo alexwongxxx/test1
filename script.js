@@ -89,7 +89,6 @@ if (navigator.geolocation) {
                     url: currMarker[3],
                     scaledSize: new google.maps.Size(currMarker[4], currMarker[5])
                 },
-                animation: google.maps.Animation.DROP
             });
 
             const secondInfowindow = new google.maps.InfoWindow({
