@@ -13,7 +13,7 @@ body{
 }
 
 #map{
-    height: 90vh;
+    height: 70vh;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -58,10 +58,6 @@ body{
     background-color: #231C1A;
     margin-bottom: 0;
     padding-bottom: 0;
-}
-
-.homepage{
-    background-color: lightgray;
 }
 
 h2{
