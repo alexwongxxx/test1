@@ -426,7 +426,7 @@ if (navigator.geolocation) {
                 title: currMarker[0],
                 icon: {
                     url: currMarker[3],
-                    scaledSize: new google.maps.Size(currMarker38, 31)
+                    scaledSize: new google.maps.Size(38, 31)
                 },
             });
 
