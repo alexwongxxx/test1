@@ -69,8 +69,33 @@ h2{
     margin: 0;
 }
 
-p{
-    color:gray;
-    font-size: 30px;
+.information{
+    background-color: lightgray;
+    padding-bottom: 70vh;
+}
+
+.info p{
+    text-align: center;
+    line-height:2em;    
+    color:white;
+    font-size: 20px;
     margin: 0;
+}
+
+.pin{
+    display: flex;
+    background-color: black;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 80px 0 80px;
+}
+
+.pin div{
+    width:150px;
+    text-align:center;
+    color: white;
+}
+
+.pin img{
+    border-radius:10px;;
 }
