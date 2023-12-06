@@ -426,12 +426,12 @@ if (navigator.geolocation) {
                 title: currMarker[0],
                 icon: {
                     url: currMarker[3],
-                    scaledSize: new google.maps.Size(currMarker[4], currMarker[5])
+                    scaledSize: new google.maps.Size(currMarker38, 31)
                 },
             });
 
             const secondInfowindow = new google.maps.InfoWindow({
-                content: currMarker[6],
+                content: currMarker[4],
             });
 
             secondMarker.addListener("click", () => {
